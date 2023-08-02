@@ -46,7 +46,7 @@ public class TransactionController {
         return ResponseUtil.successResponse(dataAssembler.toDto(res.get()));
     }
 
-    @GetMapping("/getCPBetween")
+    @PostMapping("/getCPBetween")
     public ResponseEntity<Object> getCPBetween(@RequestBody CPReqDtoBetween info) {
         if(customerRepository.findById(info.getCustomerId()).isEmpty()) {
             return ResponseUtil.badRequest("Invalid customer id");
@@ -64,7 +64,7 @@ public class TransactionController {
         return ResponseUtil.successResponse(mark);
     }
 
-    @GetMapping("/getCPAll")
+    @PostMapping("/getCPAll")
     public ResponseEntity<Object> getCPAll(@RequestBody CPReqDtoAll info) {
         if(customerRepository.findById(info.getCustomerId()).isEmpty()) {
             return ResponseUtil.badRequest("Invalid customer id");
@@ -80,7 +80,7 @@ public class TransactionController {
         return ResponseUtil.successResponse(mark);
     }
 
-    @GetMapping("/getCPMonth")
+    @PostMapping("/getCPMonth")
     public ResponseEntity<Object> getCPMonth(@RequestBody CPReqDtoMonth info) {
         if(customerRepository.findById(info.getCustomerId()).isEmpty()) {
             return ResponseUtil.badRequest("Invalid customer id");
